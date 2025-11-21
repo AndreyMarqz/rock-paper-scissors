@@ -6,12 +6,12 @@ function getComputerChoice(){
     } else if (random >= 0.3 && random < 0.6){
         return "Paper";
     } else if (random >= 0.6){
-        return "Scissor";
+        return "Scissors";
     }
 }
 
 function getHumanChoice(){
-    let choice = prompt("Rock, Paper or Scissor?");
+    let choice = prompt("Rock, Paper or Scissors?");
     return choice;
 }
 
@@ -25,34 +25,34 @@ function playRound(humanChoice, computerChoice){
         return "Draw! Rock x Rock"; // Rock x Rock
     } else if (humanChoice == "Paper" && computerChoice == "Paper"){ 
         return "Draw! Paper x Paper"; // Paper x Paper
-    } else if (humanChoice == "Scissor" && computerChoice == "Scissors"){
-        return "Draw! Scissor x Scissor"; // Scissor x Scissor
+    } else if (humanChoice == "Scissors" && computerChoice == "Scissors"){
+        return "Draw! Scissors x Scissors"; // Scissors x Scissors
     } else if (humanChoice == "Paper" && computerChoice == "Rock"){
         humanScore += 1; // Paper x Rock
         return "Win! Paper beats Rock!";
-    } else if (humanChoice == "Rock" && computerChoice == "Scissor"){
-        humanScore += 1; // Rock x Scissor
-        return "Win! Rock beats Scissor!";
-    } else if (humanChoice == "Scissor" && computerChoice == "Paper"){
-        humanScore += 1; // Scissor x Paper
-        return "Win! Scissor beats Paper!";
-    } else if (humanChoice ==  "Scissor" && computerChoice == "Rock"){
-        computerScore += 1;  // Scissor x Rock
-        return "Lose! Scissor doesn't beat Rock";
+    } else if (humanChoice == "Rock" && computerChoice == "Scissors"){
+        humanScore += 1; // Rock x Scissors
+        return "Win! Rock beats Scissors!";
+    } else if (humanChoice == "Scissors" && computerChoice == "Paper"){
+        humanScore += 1; // Scissors x Paper
+        return "Win! Scissors beats Paper!";
+    } else if (humanChoice ==  "Scissors" && computerChoice == "Rock"){
+        computerScore += 1;  // Scissors x Rock
+        return "Lose! Scissors doesn't beat Rock";
     } else if (humanChoice ==  "Rock" && computerChoice == "Paper"){
         computerScore += 1; // Rock x Paper
         return "Lose! Rock doesn't beat Paper";
-    } else if (humanChoice ==  "Paper" && computerChoice == "Scissor"){
-        computerScore += 1; // Paper x Scissor
-        return "Lose! Paper doesn't beat Scissor";
+    } else if (humanChoice ==  "Paper" && computerChoice == "Scissors"){
+        computerScore += 1; // Paper x Scissors
+        return "Lose! Paper doesn't beat Scissors";
     }
 }
 
 function playGame(){
-    for(let i = 0; i <= 5; i++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
+    for(let i = 0; i < 5; i++){
+        let computerSelection = getComputerChoice();
+        let humanSelection = getHumanChoice();
+        console.log(playRound(humanSelection, computerSelection));
     }
 
     if (humanScore > computerScore){
